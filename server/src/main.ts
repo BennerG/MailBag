@@ -4,8 +4,8 @@ import express,
 import { serverInfo } from "./ServerInfo";
 import * as IMAP from "./IMAP";
 import * as SMTP from "./SMTP";
-import * as Contacts from "./Contacts";
-import { IContact } from "./Contacts";
+import * as Contacts from "./contacts";
+import { IContact } from "./contacts";
 
 const app: Express = express();
 
@@ -118,7 +118,7 @@ app.delete("/contacts/:id",
     async (req: Request, res: Response) => {
         try {
             const contactsWorker: Contacts.Worker = new Contacts.Worker();
-            await contactsWorker.deleteContect(req.params.id);
+            await contactsWorker.deleteContact(req.params.id);
             res.send("ok");
         } catch (error) {
             res.send("error");
