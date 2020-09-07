@@ -83,15 +83,14 @@ export class Worker {
         return finalMessages;
     }
     public async getMessageBody(inCallOptions: ICallOptions):
-    Promise<string> {
+    Promise<string|undefined> {
         const client: any = await this.connectToServer();
         const messages: any[] = await client.listMessages(
             inCallOptions.mailbox, inCallOptions.id,
-            [ "body{}" ], { byUid : true }
+            [ "body[]" ], { byUid : true }
         );
         const parsed: ParsedMail = await simpleParser(messages[0]["body[]"]);
         await client.close();
-        parsed.text = (!parsed.text) ? "" : parsed.text;
         return parsed.text;
     }
     public async deleteMessage(inCallOptions: ICallOptions):

@@ -39,6 +39,19 @@ export class Worker {
             );
         });
     }
+    public updateContact(inID: string, inContact: IContact): Promise<string> {
+        return new Promise((resolve, reject) => {
+            this.db.update({_id: inID}, inContact, {},
+                (err: Error | null, numberOfUpdated: number, upsert: boolean) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(`Updated: ${numberOfUpdated}.`);
+                    }
+                }
+            );
+        });
+    }
     public deleteContact(inID: string): Promise<string> {
         return new Promise((resolve, reject) => {
             this.db.remove({_id : inID }, {}, 
