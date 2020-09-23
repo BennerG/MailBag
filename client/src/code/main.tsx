@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import BaseLayout from "./components/BaseLayout";
 
 import * as IMAP from "./IMAP";
-import { ImagePalette } from "material-ui/svg-icons";
+import * as Contacts from "./Contacts";
 
 const baseComponent = ReactDOM.render(
     <BaseLayout />, document.body
@@ -21,3 +21,13 @@ async function getMailboxes() {
         baseComponent.state.addMailBoxToList(inMailbox);
     })
 }
+getMailboxes().then(function() {
+    async function getContacts() {
+        const contactsWorker: Contacts.Worker = new Contacts.Worker();
+        const contacts: Contacts.IContact[] = await contactsWorker.listContacts();
+        contacts.forEach((inContact) => {
+            baseComponent.state.addContactToList(inContact);
+        });
+    }
+    getContacts().then(() => baseComponent.state.showHidePleaseWait(false));
+});
