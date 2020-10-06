@@ -17,3 +17,5 @@ const Toolbar = ({ state }) => (
         </Button>
     </div>
 );
+
+export default Toolbar;

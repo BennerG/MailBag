@@ -43,18 +43,17 @@ class BaseLayout extends Component {
                     <div className="messageList">
                         <MessageList state={ this.state } />
                     </div>
-                </div>
-
-                <div className="centerViews">
-                    { this.state.currentView === "welcome" && <WelcomeView /> }
-                    { (this.state.currentView === "message" ||
-                      this.state.currentView === "compose") && 
-                      <MessageView state={ this.state } />
-                    }
-                    { (this.state.currentView === "contact" ||
-                      this.state.currentView === "contactAdd") && 
-                      <ContactView state={ this.state } />
-                    }
+                    <div className="centerViews">
+                        { this.state.currentView === "welcome" && <WelcomeView /> }
+                        { (this.state.currentView === "message" ||
+                        this.state.currentView === "compose") && 
+                        <MessageView state={ this.state } />
+                        }
+                        { (this.state.currentView === "contact" ||
+                        this.state.currentView === "contactAdd") && 
+                        <ContactView state={ this.state } />
+                        }
+                    </div>
                 </div>
 
                 <div className="contactList">

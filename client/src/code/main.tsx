@@ -18,7 +18,7 @@ async function getMailboxes() {
     const imapWorker: IMAP.Worker = new IMAP.Worker();
     const mailboxes: IMAP.IMailbox[] = await imapWorker.listMailboxes();
     mailboxes.forEach(inMailbox => {
-        baseComponent.state.addMailBoxToList(inMailbox);
+        baseComponent.state.addMailboxToList(inMailbox);
     })
 }
 getMailboxes().then(function() {

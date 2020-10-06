@@ -17,20 +17,20 @@ const ContactView = ({ state }) => (
             style={{ width: 520 }} onChange={ state.fieldChangeHandler } />
         <br />
         { state.currentView === "contactAdd" &&
-            <Button vairiant="contained" color="primary" size="small"
+            <Button variant="contained" color="primary" size="small"
                 style={{ marginTop: 10 }} onClick={ state.saveContact }>
                 Save
             </Button>
         }
         { state.currentView === "contact" &&
-            <Button vairiant="contained" color="primary" size="small"
+            <Button variant="contained" color="primary" size="small"
                 style={{ marginTop: 10, marginRight: 10 }} 
                 onClick={ state.deleteContact }>
                 Delete
             </Button>
         }
         { state.currentView === "contact" &&
-            <Button vairiant="contained" color="primary" size="small"
+            <Button variant="contained" color="primary" size="small"
                 style={{ marginTop: 10 }} 
                 onClick={ () => state.showComposeMessage("contact") }>
                 Send Email
@@ -38,3 +38,5 @@ const ContactView = ({ state }) => (
         }
     </form>
 );
+
+export default ContactView;

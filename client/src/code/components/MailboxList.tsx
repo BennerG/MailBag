@@ -10,7 +10,7 @@ const MailboxList = ({ state }) => (
                     state.setCurrentMailbox(value.path)
                 }
                 style={{ width: 128, marginBottom: 10 }}
-                color={{ state.currentMailbox === value.path ? "secondary" : "primary" }} />
+                color={ state.currentMailbox === value.path ? "secondary" : "primary" } />
             );
         })}
     </List>
