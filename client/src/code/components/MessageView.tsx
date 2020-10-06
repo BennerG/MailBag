@@ -60,5 +60,13 @@ const MessageView = ({ state }) => (
                 Reply
             </Button>
         }
+        { state.currentView === "message" && 
+            <Button variant="contained" color="primary" size="small"
+                style={{ marginTop: 10 }} onClick={ state.deleteMessage }>
+                Delete
+            </Button>
+        }
     </form>
 );
+
+export default MessageView;
