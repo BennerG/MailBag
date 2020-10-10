@@ -74,7 +74,7 @@ export function createState(inParentComponent) {
         }.bind(inParentComponent),
 
         setCurrentMailbox: function(inPath: string): void {
-            inParentComponent.setState({ currentView: "welcome", currentMailebox: inPath});
+            inParentComponent.setState({ currentView: "welcome", currentMailbox: inPath});
             inParentComponent.state.getMessages(inPath);
         }.bind(inParentComponent),
 
@@ -138,12 +138,12 @@ export function createState(inParentComponent) {
         showMessage:  async function(inMessage: IMAP.IMessage): Promise<void> {
             inParentComponent.state.showHidePleaseWait(true);
             const imapWorker: IMAP.Worker = new IMAP.Worker();
-            console.log('here');
             const mb: string =  await imapWorker.getMessageBody(
                 inMessage.id, inParentComponent.state.currentMailbox
             );
+            // console.log('message body:');
+            // console.log(mb);
             inParentComponent.state.showHidePleaseWait(false);
-            console.log('here');
             inParentComponent.setState({ currentView: "message", messageID: inMessage.id,
                 messageDate: inMessage.date, messageFrom: inMessage.from,
                 messageTo: "", messageSubject: inMessage.subject,

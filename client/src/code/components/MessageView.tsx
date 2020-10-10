@@ -38,14 +38,14 @@ const MessageView = ({ state }) => (
                 InputProps={{ style:  { color: "#000000" } }} 
                 onChange={ state.fieldChangeHandler } />
         }
-        { state.currentView === "compose" && <br />}
-        { state.currentView === "compose" && 
-            <TextField margin="dense" variant="outlined" id="messageBody"
-                fullWidth={ true } multiline={ true } value={ state.messageBody }
-                rows={ 12 } disabled={ state.currentView === "message" }
-                InputProps={{ style:  { color: "#000000" } }} 
-                onChange={ state.fieldChangeHandler } />
-        }
+        
+        <br />
+        <TextField margin="dense" variant="outlined" id="messageBody"
+            fullWidth={ true } multiline={ true } value={ state.messageBody }
+            rows={ 12 } disabled={ state.currentView === "message" }
+            InputProps={{ style:  { color: "#000000" } }} 
+            onChange={ state.fieldChangeHandler } />
+        
         { state.currentView === "compose" && <br />}
         { state.currentView === "compose" && 
             <Button variant="contained" color="primary" size="small"
